@@ -130,7 +130,7 @@ class ST77xx:
         if command is not None:
             self.dc_low()
             self.spi.write(bytes([command]))
-        if data is not None:
+        if data is not None and data != b'':
             self.dc_high()
             self.spi.write(data)
         self.cs_high()
